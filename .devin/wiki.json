@@ -1,41 +1,44 @@
 {
-  "version": 1,
   "repo_notes": [
-    { "content": "SECURITY: This repository contains NO credentials. All database configuration is managed through Vercel environment variables. Do not document any connection strings, passwords, or environment variable values." }
-  ],
-  "exclude_paths": [
-    "REBUILD-V2-SPEC.md",
-    "REBUILD-SPEC.md", 
-    "SPEC.md",
-    "check_import.sh",
-    "*.sh"
+    {
+      "content": "DEVIN//HHS is a Medicaid transparency platform built with Next.js 15 and TimescaleDB. All environment configuration is managed via Vercel dashboard - no credentials are stored in the repository. The .env.local file is gitignored and should never be committed."
+    }
   ],
   "pages": [
     {
-      "title": "Development Setup",
-      "parent": "Development Guide",
-      "exclude": true,
-      "page_notes": [{ "content": "REMOVED FOR SECURITY. Standard Next.js setup: npm install && npm run dev. Environment variables are configured in Vercel dashboard only." }]
+      "title": "Overview",
+      "purpose": "Introduce the DEVIN//HHS Medicaid Transparency Platform and its mission"
     },
     {
-      "title": "Getting Started",
-      "parent": "Overview",
-      "page_notes": [{ "content": "Standard Next.js project. Run: npm install && npm run dev. No local environment configuration required - all secrets managed via Vercel." }]
+      "title": "Architecture",
+      "purpose": "High-level overview of Next.js frontend, API routes, and database layer"
     },
     {
-      "title": "Database Architecture", 
-      "parent": "Architecture",
-      "page_notes": [{ "content": "Uses TimescaleDB. Connection configured via Vercel environment variables. No credentials stored in repository." }]
+      "title": "Frontend",
+      "purpose": "Next.js 15 App Router structure and page components",
+      "parent": "Architecture"
     },
     {
-      "title": "Database Module (lib/db.ts)",
-      "parent": "Data Layer", 
-      "page_notes": [{ "content": "Database client uses process.env.DATABASE_URL configured in Vercel. No hardcoded credentials." }]
+      "title": "API Layer",
+      "purpose": "REST API endpoints for providers, HCPCS codes, and statistics",
+      "parent": "Architecture"
     },
     {
-      "title": "Environment Configuration",
-      "exclude": true,
-      "page_notes": [{ "content": "REMOVED. All environment configuration managed via Vercel dashboard." }]
+      "title": "Database",
+      "purpose": "TimescaleDB schema design and query patterns. Connection via Vercel env vars.",
+      "parent": "Architecture"
+    },
+    {
+      "title": "Pages",
+      "purpose": "User-facing pages: Home, Explore, Charts, Provider Detail, HCPCS Detail"
+    },
+    {
+      "title": "API Reference",
+      "purpose": "Complete API documentation for all endpoints"
+    },
+    {
+      "title": "Deployment",
+      "purpose": "Vercel deployment configuration. Environment variables managed in Vercel dashboard."
     }
   ]
 }
