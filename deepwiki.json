@@ -1,8 +1,0 @@
-{
-  "exclude_pages": ["Development Setup", "Environment Configuration"],
-  "exclude_paths": ["REBUILD-V2-SPEC.md", "REBUILD-SPEC.md", "SPEC.md", "*.sh"],
-  "page_overrides": {
-    "Development Setup": "Standard Next.js setup. npm install && npm run dev. All environment variables configured via Vercel dashboard - no local credentials.",
-    "Getting Started": "Clone the repo, run npm install, then npm run dev. Environment configuration is managed in Vercel."
-  }
-}
