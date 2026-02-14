@@ -6,6 +6,7 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, LineChart, Line, Legend
 } from 'recharts';
+import DataVerificationBadge from '@/components/DataVerificationBadge';
 
 interface FMAPData {
   stateCode: string;
@@ -221,6 +222,11 @@ export default function FederalPage() {
               </div>
             </div>
           )}
+        </div>
+
+        {/* Data Verification */}
+        <div className="mb-6">
+          <DataVerificationBadge records="227M" spending="$1.09T" compact />
         </div>
 
         {/* Summary Cards */}
