@@ -1,42 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DEVIN//HHS
 
-## Getting Started
+Full transparency into Medicaid provider spending across the United States.
 
-First, run the development server:
+**Live:** https://devin-hhs.vercel.app
+
+## Overview
+
+DEVIN//HHS provides unprecedented transparency into Medicaid provider spending, transforming 227 million healthcare spending records into accessible, searchable information for researchers, policymakers, and the public.
+
+## Features
+
+### Provider Analysis
+- **227M+ Records** - Complete Medicaid provider utilization data (2018-2024)
+- **Provider Search** - Look up any provider by NPI
+- **HCPCS Analysis** - Procedure code breakdowns with spending trends
+- **Outlier Detection** - Statistical identification of unusual spending patterns
+
+### Federal Funding
+- **FMAP Rates** - Federal Medical Assistance Percentage for all 51 states/territories
+- **Expansion Analysis** - Comparison of expansion vs non-expansion states
+- **Congressional Districts** - Spending estimates for 436 districts
+- **AI Insights** - Policy implications and economist-grade analysis
+
+### Visualizations
+- 15+ interactive charts powered by Recharts
+- Geographic distribution analysis
+- Time series trends
+- Cost efficiency metrics
+
+## Tech Stack
+
+- **Frontend:** Next.js 15, TypeScript, Tailwind CSS
+- **Database:** TimescaleDB (PostgreSQL)
+- **Deployment:** Vercel
+- **Data Source:** [opendata.hhs.gov](https://opendata.hhs.gov)
+
+## Development
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Run tests
+npm test
+
+# Build for production
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment Configuration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All environment variables are configured via Vercel dashboard:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Connect to Vercel project
+vercel link
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-## Environment Setup
-
-All environment variables are configured via Vercel dashboard. Run `vercel env pull` for local development.
+# Pull environment variables for local development
+vercel env pull .env.local
+```
 
 **No credentials are stored in this repository.**
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── api/           # API routes
+│   ├── federal/       # Federal funding pages
+│   ├── charts/        # Visualization page
+│   ├── explore/       # Data exploration
+│   ├── outliers/      # Statistical outliers
+│   └── analysis/      # AI-generated insights
+├── lib/
+│   ├── aggregates.ts  # Pre-computed provider data
+│   ├── federal-aggregates.ts  # FMAP and district data
+│   └── hcpcs-definitions.ts   # Procedure code definitions
+└── components/
+    └── ProviderSearch.tsx
+```
+
+## Data Sources
+
+- **Provider Spending:** HHS Open Data - Medicaid Provider Utilization
+- **FMAP Rates:** CMS Federal Medical Assistance Percentage (FY2022-2024)
+- **Congressional Districts:** Census Bureau
+- **Provider Registry:** NPPES (National Plan and Provider Enumeration System)
+
+## Built With
+
+This transparency platform was built using **Devin CLI** — demonstrating AI-assisted development for complex, data-intensive applications.
+
+## License
+
+This project provides transparency into public data. The underlying data is from [opendata.hhs.gov](https://opendata.hhs.gov) and is in the public domain.
