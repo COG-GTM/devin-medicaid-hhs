@@ -1,44 +1,69 @@
 {
   "repo_notes": [
     {
-      "content": "DEVIN//HHS is a Medicaid transparency platform built with Next.js 15 and TimescaleDB. All environment configuration is managed via Vercel dashboard - no credentials are stored in the repository. The .env.local file is gitignored and should never be committed."
+      "content": "SECURITY NOTICE: This repository contains NO credentials or connection strings. All database configuration (DATABASE_URL, TIMESCALE_DATABASE_URL) is managed exclusively through Vercel environment variables. The .env.local file is gitignored. Do NOT document any environment variable values, passwords, or connection strings."
+    },
+    {
+      "content": "For local development, developers must configure their own Vercel project and pull environment variables using 'vercel env pull'. No credentials should ever appear in documentation."
     }
   ],
   "pages": [
     {
       "title": "Overview",
-      "purpose": "Introduce the DEVIN//HHS Medicaid Transparency Platform and its mission"
+      "purpose": "Introduce DEVIN//HHS Medicaid Transparency Platform"
+    },
+    {
+      "title": "Getting Started",
+      "purpose": "Installation and running the development server",
+      "parent": "Overview",
+      "page_notes": [
+        {
+          "content": "Run 'npm install' then 'npm run dev'. Environment variables are configured via Vercel dashboard - use 'vercel env pull' for local development. Never commit .env files."
+        }
+      ]
+    },
+    {
+      "title": "Development Guide",
+      "purpose": "Guide for developers working on the project",
+      "page_notes": [
+        {
+          "content": "All environment configuration is managed through Vercel. No credentials are stored in the repository."
+        }
+      ]
+    },
+    {
+      "title": "Development Setup",
+      "purpose": "Setting up local development environment",
+      "parent": "Development Guide",
+      "page_notes": [
+        {
+          "content": "Clone the repository and run 'npm install'. For environment variables, connect to Vercel using 'vercel link' then 'vercel env pull .env.local'. All secrets are managed in Vercel dashboard - never commit credentials to the repository. The .env.local file is in .gitignore."
+        }
+      ]
+    },
+    {
+      "title": "Build and Deployment",
+      "purpose": "Building and deploying to production",
+      "parent": "Development Guide",
+      "page_notes": [
+        {
+          "content": "Deployed via Vercel with automatic CI/CD. Production environment variables are configured in Vercel dashboard."
+        }
+      ]
     },
     {
       "title": "Architecture",
-      "purpose": "High-level overview of Next.js frontend, API routes, and database layer"
+      "purpose": "System architecture overview"
     },
     {
-      "title": "Frontend",
-      "purpose": "Next.js 15 App Router structure and page components",
-      "parent": "Architecture"
-    },
-    {
-      "title": "API Layer",
-      "purpose": "REST API endpoints for providers, HCPCS codes, and statistics",
-      "parent": "Architecture"
-    },
-    {
-      "title": "Database",
-      "purpose": "TimescaleDB schema design and query patterns. Connection via Vercel env vars.",
-      "parent": "Architecture"
-    },
-    {
-      "title": "Pages",
-      "purpose": "User-facing pages: Home, Explore, Charts, Provider Detail, HCPCS Detail"
-    },
-    {
-      "title": "API Reference",
-      "purpose": "Complete API documentation for all endpoints"
-    },
-    {
-      "title": "Deployment",
-      "purpose": "Vercel deployment configuration. Environment variables managed in Vercel dashboard."
+      "title": "Database Architecture",
+      "purpose": "TimescaleDB schema and design",
+      "parent": "Architecture",
+      "page_notes": [
+        {
+          "content": "Uses TimescaleDB for time-series data. Connection string is stored in Vercel environment variables (DATABASE_URL). No credentials in codebase."
+        }
+      ]
     }
   ]
 }
