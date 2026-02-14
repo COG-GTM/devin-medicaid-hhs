@@ -1,0 +1,47 @@
+{
+  "repo_notes": [
+    { "content": "DEVIN//HHS is a Medicaid transparency platform. No credentials or environment variables should be documented - all configuration is via Vercel dashboard." }
+  ],
+  "pages": [
+    {
+      "title": "Overview",
+      "purpose": "Introduce the DEVIN//HHS Medicaid Transparency Platform",
+      "page_notes": [{ "content": "" }]
+    },
+    {
+      "title": "Getting Started",
+      "purpose": "Guide users through installing dependencies and running the development server",
+      "parent": "Overview",
+      "page_notes": [{ "content": "Run npm install then npm run dev. All environment configuration is managed via Vercel dashboard." }]
+    },
+    {
+      "title": "Development Guide",
+      "purpose": "Practical guide for developers",
+      "page_notes": [{ "content": "" }]
+    },
+    {
+      "title": "Development Setup",
+      "purpose": "Standard Next.js setup instructions",
+      "parent": "Development Guide",
+      "page_notes": [{ "content": "Clone repo, run npm install, run npm run dev. All environment variables are configured via Vercel dashboard - no local .env file should be committed." }]
+    },
+    {
+      "title": "Build and Deployment",
+      "purpose": "Build process and Vercel deployment",
+      "parent": "Development Guide",
+      "page_notes": [{ "content": "Deployed via Vercel. Environment configuration managed in Vercel dashboard." }]
+    },
+    {
+      "title": "Database Architecture",
+      "purpose": "Explain the TimescaleDB setup and schema design",
+      "parent": "Architecture",
+      "page_notes": [{ "content": "Database connection is configured via Vercel environment variables. No credentials in codebase." }]
+    },
+    {
+      "title": "Database Module (lib/db.ts)",
+      "purpose": "Database abstraction layer",
+      "parent": "Data Layer",
+      "page_notes": [{ "content": "Uses connection pooling via DATABASE_URL environment variable configured in Vercel." }]
+    }
+  ]
+}
