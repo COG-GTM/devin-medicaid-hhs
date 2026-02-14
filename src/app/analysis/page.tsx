@@ -252,7 +252,7 @@ function generateInsights(data: ChartData): Insight[] {
 }
 
 export default function AnalysisPage() {
-  const [data, setData] = useState<ChartData | null>(null);
+  const [_data, setData] = useState<ChartData | null>(null);
   const [insights, setInsights] = useState<Insight[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

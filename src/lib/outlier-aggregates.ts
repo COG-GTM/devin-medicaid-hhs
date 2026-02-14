@@ -194,7 +194,7 @@ export const OUTLIER_METADATA = {
 };
 
 // Legacy function for backward compatibility (no longer needed but kept for API)
-export function getZScoreAnalogy(z: number): { probability: string; analogy: string; severity: string } {
+export function getZScoreAnalogy(_z: number): { probability: string; analogy: string; severity: string } {
   // This is now handled by pre-computed analogies in the data
   return { probability: "See item", analogy: "See item", severity: "high" };
 }

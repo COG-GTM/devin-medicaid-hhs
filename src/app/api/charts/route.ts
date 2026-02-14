@@ -85,7 +85,7 @@ export async function GET() {
     });
 
     // Provider concentration - Top 10 breakdown individually
-    const top10Spending = TOP_PROVIDERS.slice(0, 10).reduce((sum, p) => sum + p.spending, 0);
+    const _top10Spending = TOP_PROVIDERS.slice(0, 10).reduce((sum, p) => sum + p.spending, 0);
     const concentration = TOP_PROVIDERS.slice(0, 10).map(p => {
       const info = getProviderInfo(p.npi);
       return {

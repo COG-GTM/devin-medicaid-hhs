@@ -15,7 +15,10 @@ export async function executeQuery(text: string, params?: any[]) {
   try {
     const res = await pool.query(text, params);
     const duration = Date.now() - start;
-    console.log('Executed query', { text: text.substring(0, 50), duration, rows: res.rowCount });
+    // Only log in development
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Executed query', { text: text.substring(0, 50), duration, rows: res.rowCount });
+    }
     return res;
   } catch (error) {
     console.error('Database query error:', error);
@@ -133,7 +136,7 @@ export async function getMonthlySpendingByHCPCS(code: string) {
 
 export async function getTotalCount(search: string = '') {
   let whereClause = '';
-  let params: any[] = [];
+  const params: any[] = [];
   
   if (search) {
     whereClause = 'WHERE billing_provider_npi ILIKE $1 OR hcpcs_code ILIKE $1';

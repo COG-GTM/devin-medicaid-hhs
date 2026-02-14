@@ -89,7 +89,7 @@ export default function FederalExplorePage() {
   });
 
   // Filter
-  let filtered = combinedData.filter(s => {
+  const filtered = combinedData.filter(s => {
     if (filterExpansion !== 'all' && s.expansionStatus !== filterExpansion) return false;
     if (search) {
       const q = search.toLowerCase();

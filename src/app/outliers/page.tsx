@@ -192,7 +192,7 @@ export default function OutliersPage() {
               <p className="text-sm text-gray-600">Sorted by Spending Z-Score (highest first)</p>
             </div>
             <div className="divide-y divide-gray-200">
-              {(paginatedData as ProviderOutlier[]).map((p, i) => (
+              {(paginatedData as ProviderOutlier[]).map((p, _i) => (
                 <div key={p.npi} className="p-4 flex justify-between items-start hover:bg-gray-50">
                   <div className="flex-1">
                     <Link href={`/provider/${p.npi}`} className="text-lg font-mono text-blue-600 hover:underline">
@@ -233,7 +233,7 @@ export default function OutliersPage() {
               <p className="text-sm text-gray-600">Sorted by Z-Score (highest first)</p>
             </div>
             <div className="divide-y divide-gray-200">
-              {(paginatedData as HCPCSOutlier[]).map((h, i) => (
+              {(paginatedData as HCPCSOutlier[]).map((h, _i) => (
                 <div key={h.code} className="p-4 flex justify-between items-start hover:bg-gray-50">
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
