@@ -1,1 +1,25 @@
-{"index": false}
+{
+  "index": true,
+  "force_refresh": true,
+  "exclude_paths": [
+    "REBUILD-V2-SPEC.md",
+    "REBUILD-SPEC.md",
+    "SPEC.md",
+    "check_import.sh",
+    "**/*.sh"
+  ],
+  "sensitive_patterns": [
+    "password",
+    "secret",
+    "credential",
+    "DATABASE_URL",
+    "TIMESCALE",
+    "tsdbadmin",
+    "postgres://"
+  ],
+  "page_overrides": {
+    "6.1-development-setup": {
+      "content": "Standard Next.js setup. All environment variables are configured via Vercel dashboard. No credentials in codebase."
+    }
+  }
+}
