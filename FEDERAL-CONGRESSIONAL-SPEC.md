@@ -1,7 +1,7 @@
 # FEDERAL & CONGRESSIONAL DATA EXPANSION
 ## Engineering Specification v1.0
 
-**Author:** Michael Cosme  
+**Author:** COG-GTM Team  
 **Date:** February 14, 2026  
 **Status:** PLANNING  
 
@@ -417,4 +417,4 @@ e2e/federal.spec.ts
 ---
 
 *Spec created: Feb 14, 2026*
-*Author: Michael Cosme*
+*Author: COG-GTM Team*
