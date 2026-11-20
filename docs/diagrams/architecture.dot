@@ -1,0 +1,55 @@
+// DEVIN//HHS architecture (main). Edit this file, then run docs/diagrams/render.sh.
+digraph architecture {
+  graph [rankdir=TB, fontname="DejaVu Sans", fontsize=18, nodesep=0.35, ranksep=0.55,
+         pad=0.3, newrank=true, label="DEVIN//HHS architecture (main)", labelloc=t];
+  node  [shape=box, style="rounded,filled", fillcolor=white, fontname="DejaVu Sans", fontsize=16, margin="0.18,0.08"];
+  edge  [fontname="DejaVu Sans", fontsize=13, color="#444444"];
+
+  browser [label="Browser\n(researchers, analysts, public)", shape=oval, fillcolor="#e8f0fe"];
+
+  subgraph cluster_pages {
+    label="Next.js 16 App Router pages (src/app)"; style="rounded,filled"; fillcolor="#f4f8ff"; color="#5b7bb2"; fontsize=16;
+    home [label="/  (server component)\nstats + ProviderSearch"];
+    static_pages [label="Client pages on static data\n/explore  /charts  /analysis  /outliers\n/federal  /federal/explore  /federal/outliers\n/sources   (/about is static content)"];
+    db_pages [label="Client pages on live queries\n/provider/[npi]   /hcpcs/[code]"];
+    fed_analysis [label="/federal/analysis\n(static data + optional deep analysis)"];
+  }
+
+  subgraph cluster_api {
+    label="Route handlers (src/app/api)"; style="rounded,filled"; fillcolor="#f3fbf3"; color="#4f8a4f"; fontsize=16;
+    api_static [label="Static-data APIs\n/api/charts  /api/rankings  /api/outliers\n/api/federal  /api/federal/outliers\n/api/federal/analysis  /api/sources  /api/stats"];
+    api_db [label="DB-backed APIs\n/api/provider/[npi]  /api/hcpcs/[code]\n/api/providers"];
+    api_deep [label="/api/analysis/deep\n(own pg Pool)"];
+  }
+
+  subgraph cluster_lib {
+    label="src/lib"; style="rounded,filled"; fillcolor="#fff8ec"; color="#b5852f"; fontsize=16;
+    aggregates [label="Pre-computed aggregates (TS modules)\naggregates  rankings  geo-aggregates\nhcpcs-aggregates  outlier-aggregates\nfederal-aggregates  federal-outliers\nprovider-lookup  data-sources  hcpcs-definitions"];
+    dbts [label="db.ts\npg Pool on DATABASE_URL"];
+  }
+
+  pg [label="PostgreSQL / TimescaleDB\nmedicaid_provider_spending (227M rows)\nprovider_locations, federal_* tables,\nmaterialized views (mv_*)", shape=cylinder, fillcolor="#fdecea"];
+
+  subgraph cluster_offline {
+    label="Offline data jobs (run by hand, not part of the app)"; style="rounded,dashed"; color="#888888"; fontsize=16;
+    offline [label="Root *.mjs scripts (geo_aggregate*, compute_outliers*,\ncreate_*_index, create_geo_views, check_tables)\nscripts/migrate-federal.ts  scripts/create-analysis-views.ts\ncreate_federal_tables.sql   data/federal/*"];
+  }
+
+  sources [label="Public sources\nopendata.hhs.gov, CMS FMAP, Census,\nKFF expansion status, NPPES", shape=note, fillcolor="#eeeeee"];
+
+  browser -> home; browser -> static_pages; browser -> db_pages; browser -> fed_analysis;
+  home -> aggregates [label="import"];
+  static_pages -> api_static [label="fetch"];
+  fed_analysis -> api_static [label="fetch"];
+  fed_analysis -> api_deep [label="fetch\n(HTTP 500 breaks page)", style=dashed];
+  db_pages -> api_db [label="fetch"];
+  api_static -> aggregates [label="import"];
+  api_db -> dbts;
+  dbts -> pg [label="SQL"];
+  api_deep -> pg [label="SQL"];
+  offline -> pg [label="DDL / queries", style=dashed];
+  offline -> aggregates [label="numbers pasted /\nwritten into", style=dashed];
+  sources -> offline [style=dashed];
+
+  {rank=same; api_static; api_db; api_deep;}
+}
