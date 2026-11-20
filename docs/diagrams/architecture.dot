@@ -41,7 +41,7 @@ digraph architecture {
   home -> aggregates [label="import"];
   static_pages -> api_static [label="fetch"];
   fed_analysis -> api_static [label="fetch"];
-  fed_analysis -> api_deep [label="fetch\n(failure ignored)", style=dashed];
+  fed_analysis -> api_deep [label="fetch\n(HTTP 500 breaks page)", style=dashed];
   db_pages -> api_db [label="fetch"];
   api_static -> aggregates [label="import"];
   api_db -> dbts;

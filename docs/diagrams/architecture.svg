@@ -135,9 +135,9 @@
 <!-- db_pages&#45;&gt;api_db -->
 <g id="edge9" class="edge">
 <title>db_pages&#45;&gt;api_db</title>
-<path fill="none" stroke="#444444" d="M220.42,-581.17C249.81,-547.58 304.44,-485.14 340.25,-444.21"/>
-<polygon fill="#444444" stroke="#444444" points="342.98,-446.41 346.93,-436.58 337.71,-441.8 342.98,-446.41"/>
-<text text-anchor="middle" x="314" y="-516.1" font-family="DejaVu Sans" font-size="13.00">fetch</text>
+<path fill="none" stroke="#444444" d="M241.8,-581.41C258.05,-571.17 276.06,-558.11 290,-543.5 317.58,-514.6 340.59,-475.29 355.69,-445.84"/>
+<polygon fill="#444444" stroke="#444444" points="358.95,-447.16 360.31,-436.66 352.69,-444.02 358.95,-447.16"/>
+<text text-anchor="middle" x="347" y="-516.1" font-family="DejaVu Sans" font-size="13.00">fetch</text>
 </g>
 <!-- fed_analysis&#45;&gt;api_static -->
 <g id="edge7" class="edge">
@@ -156,10 +156,10 @@
 <!-- fed_analysis&#45;&gt;api_deep -->
 <g id="edge8" class="edge">
 <title>fed_analysis&#45;&gt;api_deep</title>
-<path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M433.86,-581.47C405.89,-574.89 374.79,-568.23 346,-563.5 301.05,-556.12 176.91,-572.76 142,-543.5 111.36,-517.83 103.76,-470.2 102.39,-437.93"/>
-<polygon fill="#444444" stroke="#444444" points="105.88,-437.54 102.13,-427.63 98.88,-437.72 105.88,-437.54"/>
-<text text-anchor="middle" x="196" y="-523.1" font-family="DejaVu Sans" font-size="13.00">fetch</text>
-<text text-anchor="middle" x="196" y="-509.1" font-family="DejaVu Sans" font-size="13.00">(failure ignored)</text>
+<path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M434.34,-581.44C406.25,-574.82 374.97,-568.14 346,-563.5 297.09,-555.67 160.06,-577.46 124,-543.5 95.74,-516.89 94.49,-469.71 97.59,-437.77"/>
+<polygon fill="#444444" stroke="#444444" points="101.1,-437.92 98.78,-427.58 94.15,-437.11 101.1,-437.92"/>
+<text text-anchor="middle" x="204" y="-523.1" font-family="DejaVu Sans" font-size="13.00">fetch</text>
+<text text-anchor="middle" x="204" y="-509.1" font-family="DejaVu Sans" font-size="13.00">(HTTP 500 breaks page)</text>
 </g>
 <!-- api_static&#45;&gt;aggregates -->
 <g id="edge10" class="edge">
