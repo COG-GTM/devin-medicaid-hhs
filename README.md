@@ -19,7 +19,7 @@ DEVIN//HHS provides unprecedented transparency into Medicaid provider spending, 
 ### Federal Funding
 - **FMAP Rates** - Federal Medical Assistance Percentage for the 50 states and DC (FY2022-2024)
 - **Expansion Analysis** - Comparison of expansion vs non-expansion states
-- **Congressional Districts** - Estimates for 436 districts, made by splitting each state's spending evenly across its House seats
+- **Congressional Districts** - Estimates for 436 districts, made by splitting each state's spending evenly across its House seats; the Districts tab lists the top 25 and `/api/federal` returns all 436 (`allDistricts`)
 - **Analysis pages** - Policy narrative generated from the pre-computed figures (no model is called at runtime)
 
 ### Visualizations
